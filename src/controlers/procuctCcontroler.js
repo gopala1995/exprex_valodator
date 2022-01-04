@@ -8,14 +8,21 @@ const { create } = require("../models/product.model")
 
 const router = express.Router()
 
-const Product = require("../models/product.model")
+const Product = require("../models/product.model");
+const { Error } = require("mongoose");
 
 router.get("",async(req,res)=>{
     const products = await Product.find().lean().exec() 
     return res.send(products)
 })
 
-router.post("",body("name").isLength({min:3}).withMessage("Name is required mst be at least 3 charecter"),async(req,res)=>{
+router.post("",body("name").isLength({min:3}).withMessage("Name is required mst be at least 3 charecter"),body("price").notEmpty().withMessage("price is required").custom((value)=>{
+    if(value<=0){
+        throw new Error("plz enter value greatr than zero");
+    }
+    return true;
+
+}), async(req,res)=>{
    try{
      //console.log(body("name"));
      const errors = validationResult(req);
