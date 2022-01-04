@@ -1,0 +1,25 @@
+{
+  "name": "exprex_valodator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gopala1995/exprex_valodator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gopala1995/exprex_valodator/issues"
+  },
+  "homepage": "https://github.com/gopala1995/exprex_valodator#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.1.4"
+  }
+}
